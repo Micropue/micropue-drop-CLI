@@ -1,5 +1,11 @@
 # DROP CLI
 
+[![npm version](https://img.shields.io/npm/v/@micropue/drop-cli?logo=npm&label=npm)](https://www.npmjs.com/package/@micropue/drop-cli)
+[![Node.js requirement](https://img.shields.io/node/v/@micropue/drop-cli?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![CI](https://github.com/Micropue/micropue-drop-CLI/actions/workflows/ci.yml/badge.svg)](https://github.com/Micropue/micropue-drop-CLI/actions/workflows/ci.yml)
+[![Release](https://github.com/Micropue/micropue-drop-CLI/actions/workflows/release.yml/badge.svg)](https://github.com/Micropue/micropue-drop-CLI/actions/workflows/release.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 把本地静态网站持续发布到 [DROP](https://drop.micropue.com.cn/developers)。`drop` 会监听当前目录，在文件变化后发布一份完整快照，并显示可直接访问的公网链接。
 
 它适合本地预览、快速分享和轻量静态站点部署，使用体验接近内网穿透工具，但部署内容会持久保存在 DROP：
