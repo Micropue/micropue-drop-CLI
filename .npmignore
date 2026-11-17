@@ -1,0 +1,15 @@
+.github/
+.git/
+.drop/
+test/
+tests/
+coverage/
+.env
+.env.*
+!.env.example
+*.log
+*.tgz
+.DS_Store
+.idea/
+.vscode/
+.drop-ignore

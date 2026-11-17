@@ -1,0 +1,54 @@
+{
+  "name": "@micropue/drop-cli",
+  "version": "0.1.0",
+  "description": "Watch a local static site and publish it to DROP.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "bin": {
+    "drop": "./src/cli.js",
+    "drop-cli": "./src/cli.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node src/cli.js",
+    "test": "node --test --test-reporter=spec",
+    "test:coverage": "node --test --experimental-test-coverage",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=20.12"
+  },
+  "keywords": [
+    "drop",
+    "deploy",
+    "static-site",
+    "cli",
+    "watch",
+    "micropue"
+  ],
+  "author": "Micropue",
+  "license": "MIT",
+  "homepage": "https://drop.micropue.com.cn/developers",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Micropue/micropue-drop-CLI.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Micropue/micropue-drop-CLI/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "cac": "^6.7.14",
+    "chokidar": "^4.0.3",
+    "ignore": "^7.0.5"
+  }
+}
