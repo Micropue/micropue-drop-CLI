@@ -57,7 +57,12 @@ export function storedKeyPath() {
   return authFile();
 }
 
-export async function resolveApiKey({ allowPrompt = true } = {}) {
+export async function resolveApiKey({
+  allowPrompt = true,
+  interactive = process.stdin.isTTY === true,
+  prompt = promptHidden,
+  savePromptedKey = saveStoredKey,
+} = {}) {
   const environmentKey = process.env.DROP_API_KEY?.trim();
   if (environmentKey) {
     return environmentKey;
@@ -74,15 +79,25 @@ export async function resolveApiKey({ allowPrompt = true } = {}) {
     });
   }
 
-  if (!process.stdin.isTTY) {
+  if (!interactive) {
     throw new DropConfigError("DROP API key is required in non-interactive mode.", {
       hint: "Set DROP_API_KEY before running the command.",
     });
   }
 
-  const key = (await promptHidden("DROP API key")).trim();
+  const key = (await prompt("DROP API key")).trim();
   if (!key) {
     throw new DropConfigError("No API key was provided.");
   }
+
+  try {
+    await savePromptedKey(key);
+  } catch (cause) {
+    throw new DropConfigError("Could not save the API key.", {
+      cause,
+      hint: "Set DROP_API_KEY or check write access to the DROP auth directory.",
+    });
+  }
+
   return key;
 }

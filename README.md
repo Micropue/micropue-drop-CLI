@@ -47,6 +47,8 @@ deployments:write
 drop login
 ```
 
+`drop login` 会在保存前验证密钥。任何命令在交互式终端中要求输入 API Key 时，输入后也会自动保存，不需要先单独执行 `drop login`。
+
 密钥保存在当前用户配置目录下的 `micropue-drop/auth.json`，文件权限为 `0600`。也可以用环境变量临时覆盖：
 
 ```bash
@@ -224,7 +226,7 @@ CLI 会在发送请求前检查这些限制并给出具体错误。
 
 | 变量 | 默认值 | 说明 |
 | --- | --- | --- |
-| `DROP_API_KEY` | 无 | API Key；优先于本地保存的密钥 |
+| `DROP_API_KEY` | 无 | API Key；优先于本地保存的密钥，不会自动写入认证文件 |
 | `DROP_API_BASE` | `https://drop.micropue.com.cn/v1` | API 基础地址 |
 | `DROP_PASSWORD` | 无 | 私有站点密码，适合非交互环境 |
 | `DROP_AUTH_FILE` | 系统配置目录 | 自定义认证文件路径 |

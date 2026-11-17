@@ -1,6 +1,6 @@
 {
   "name": "@micropue/drop-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Watch a local static site and publish it to DROP.",
   "type": "module",
   "main": "./src/index.js",
